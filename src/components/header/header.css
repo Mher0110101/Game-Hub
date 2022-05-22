@@ -1,0 +1,10 @@
+.header{
+    background-color: #1B8C7F;
+    width: 95%;
+    height: 60px;
+    box-shadow: 0 0 10px rgb(25 197 176 / 80%), inset 0 0 4px rgb(28 197 166 / 50%);
+    text-transform: uppercase;
+    color: #FFF;
+    position: fixed;
+    z-index: 1;
+}

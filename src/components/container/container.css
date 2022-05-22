@@ -1,0 +1,10 @@
+.Container{
+    width: inherit;
+    height: 8git00px;
+    padding: 20px;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
