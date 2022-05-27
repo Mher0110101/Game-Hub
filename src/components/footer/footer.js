@@ -2,7 +2,7 @@ import "./footer.css"
 const Footer = () => {
     return (
         <footer className="footer">
-            Footer
+            ACA Team  2022
         </footer>
     )
 }

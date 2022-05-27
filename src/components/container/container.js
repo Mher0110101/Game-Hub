@@ -1,12 +1,22 @@
 import './container.css'
-import GameContainer from './gameContainer/gameContainer'
-const Container = () => {
-    return <div className="Container">
-        <GameContainer name={'Game1'} />
-        <GameContainer name={'Game2'}/>
-        <GameContainer name={'Game3'}/>
-        <GameContainer name={'Game4'}/>
-    </div>
-}
+import {Link} from 'react-router-dom'
 
+const Container = () => {
+
+    const onClickHandler = (e) => {
+        document.getElementById('container').style.display = 'none'
+        document.querySelector('footer').style.display = 'none'
+        document.querySelector('header').style.opacity = 0.5;              
+        }
+     
+        return ( 
+            <div id='container'>
+                <Link to={'/game1'} className={'gameSnake'} onClick={onClickHandler}></Link>
+                <Link to={'/game2'} className={'gameContainer'} onClick={onClickHandler}>Game2</Link>
+                <Link to={'/game2'} className={'gameContainer'} onClick={onClickHandler}>Game3</Link>
+                <Link to={'/game2'} className={'gameContainer'} onClick={onClickHandler}>Game4</Link>
+            </div>                
+        );            
+             
+}
 export default Container

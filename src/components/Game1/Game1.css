@@ -1,0 +1,56 @@
+#canvasSnake{
+    margin-top: 60px;
+    margin-bottom: 10px;
+    background-color:rgb(232, 238, 174);
+    /* background-image: url('ground.png'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 850px;
+    height: 880px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;    
+    color: rgb(253, 13, 45);
+    font-size: 20px;
+}
+.btn{
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 19.8px;
+    background: rgb(195, 3, 233);
+    color: #fff;
+    font-size: 20px;
+    font-family: Bradley Hand, cursive;
+    margin-right: 30px;
+}
+.score{
+    color: rgb(83, 54, 102);
+    font-size: 30px;
+    font-family: Bradley Hand, cursive;
+}
+.canvasBottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+select{
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 6px;
+    background: rgb(195, 3, 233);
+    color: #fff;
+    font-size: 20px;
+    font-family: Bradley Hand, cursive;
+    border: #fff;
+
+}
+option{
+    font-size: 15px;
+}

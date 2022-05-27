@@ -1,0 +1,37 @@
+{
+    "users":[
+        {
+            "id":"1",
+            "name":"Artur",
+            "password":"1111",
+            "history":{
+
+            }
+        },
+        {
+            "id":"2",
+            "name":"Armen",
+            "password":"2222",
+            "history":{
+
+            }
+        },
+        {
+            "id":"3",
+            "name":"Vardan",
+            "password":"3333",
+            "history":{
+
+            }
+        },
+        {
+            "id":"4",
+            "name":"Mane",
+            "password":"4444",
+            "history":{
+
+            }
+        }
+
+    ]
+}

@@ -3,7 +3,11 @@
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
-  background-color: rgb(3, 3, 34);
+  /* background-color: rgb(9, 9, 53); */
+  background-image: url('https://images2.alphacoders.com/111/1113005.jpg'); 
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
   color: antiquewhite;
 }
 

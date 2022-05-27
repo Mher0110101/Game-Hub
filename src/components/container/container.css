@@ -1,10 +1,57 @@
-.Container{
+#container{
+    margin-top: 40px;
     width: inherit;
-    height: 8git00px;
+    height: 900px;
     padding: 20px;
     padding-top: 100px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
+} 
+.gameContainer{
+    /* margin-top: 500px; */
+    border-radius: 40px;
+    background-color:rgb(150, 176, 209) ;
+    color:rgb(10, 158, 163);
+    width: 600px;
+    height: 370px;
+    margin: 20px;
+    border: 1px,rgb(36, 101, 187),solid;
+    opacity: 0.9;
+    box-shadow:0 0 30px rgb(3, 83, 63);    
+}
+.gameContainer:hover{
+    width: 670px;
+    height: 430px;
+    box-shadow:0 0 90px rgb(28, 255, 149);
+    opacity: 1;
+    
+}
+.gameSnake{
+    border-radius: 40px;
+    background-color:rgb(140, 163, 194) ;
+    color:rgb(6, 7, 56);
+    font-size: 40px;
+    font-family: Bradley Hand, cursive;
+    text-decoration: none;
+    width: 600px;
+    height: 370px;
+    margin: 20px;
+    border: 1px,rgb(36, 101, 187),solid;
+    opacity: 0.9;
+    box-shadow:0 0 70px rgb(76, 225, 245);
+    background-image: url('https://play-lh.googleusercontent.com/GEJ3GQeLv93D3yyRdPnFZ_ZuHc3Z7zVjM--S2Nl-_bC2tRGoIJAKQZcu8zvSxNx7fg=w1024-h500');
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    background-position: center;
+    background-size: 500px 300px;
+    
+}
+.gameSnake:hover{
+    width: 670px;
+    height: 430px;
+    font-size: 45px;
+    box-shadow:0 0 90px rgb(28, 255, 149);
+    opacity: 1;
+    background-size: 570px 370px;    
 }
