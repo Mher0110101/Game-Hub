@@ -1,11 +1,10 @@
 import './Game1.css'
-import { useState, useRef, useEffect, memo } from 'react';
+import React,{ useState, useRef, useEffect, memo } from 'react';
 import { useInterval } from "./useInterval.js";
-import {CANVAS_SIZE,SNAKE_START, MOUSE_START, SCALE, DIRECTIONS} from "./consts.js";
+import {CANVAS_SIZE,SNAKE_START, MOUSE_START, SCALE, DIRECTIONS, FOOD} from "./consts.js";
 
-
+ 
 const Game1 = () => {
-
     const canvasRef = useRef();
     const [snake, setSnake] = useState(SNAKE_START);
     const [mouse, setMouse] = useState(MOUSE_START);
@@ -13,8 +12,11 @@ const Game1 = () => {
     const [speed, setSpeed] = useState(null);
     const [gameOver, setGameOver] = useState(false);
     const [score, setScore] = useState(0);
+    const [food, setFood] = useState(FOOD[0])
     const level = useRef()
     const mouseImg = useRef()
+    const snakeImg = useRef()
+
     useInterval(() => gameLoop(), speed);
   
     const endGame = () => {
@@ -49,6 +51,7 @@ const Game1 = () => {
         while (checkCollision(newMouse, newSnake)) {
           newMouse = createMouse();
         }
+        setFood(mouseImg.current.src = FOOD[Math.floor(Math.random() * FOOD.length)])
         setScore(score + 1);
         setMouse(newMouse);
         return true;
@@ -72,20 +75,22 @@ const Game1 = () => {
       setSpeed(level.current.value);
       setGameOver(false);
       setScore(0);
+
+      
     };
   
     useEffect(() => {
       const context = canvasRef.current.getContext("2d");
       context.setTransform(SCALE, 0, 0, SCALE, 0, 0);
       context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      context.fillStyle = "blueviolet";
+      context.fillStyle = "green";      
       snake.forEach(([x, y]) => {
+        context.drawImage( snakeImg.current, snake[0][0], snake[0][1], 1, 1)
         context.fillRect(x, y, 1, 1)
       });
       // context.fillStyle = "lightblue";      
       // context.fillRect(apple[0], apple[1], 1, 1)
       context.drawImage(mouseImg.current, mouse[0], mouse[1], 1.1,1.1)
-      mouseImg.current.style.display = 'flax';;
     }, [snake, mouse, gameOver, score]);
 
 
@@ -93,7 +98,8 @@ const Game1 = () => {
     return (
       
         <div role="button" tabIndex="0" onKeyDown={e => moveSnake(e)} id={'canvasSnake'}>
-        <img ref={mouseImg} id='mouse' src="https://cdn3.iconfinder.com/data/icons/animal-emoji/50/Mouse-128.png" />
+          <img ref={mouseImg} id='mouse' src={food} />
+            <img ref={snakeImg} id='mouse' src="https://art.pixilart.com/bf702463aa6296c.png" />
         <div className='score'>Score: {score}</div>
       <canvas
         style={{ border: "5px solid rgb(195, 3, 233)" }}

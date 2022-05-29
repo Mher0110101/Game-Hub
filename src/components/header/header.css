@@ -22,6 +22,11 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .logo{
+    width: 45px; 
+    height: 45px;    
+    background-image: url('https://archive.org/download/HeaderIconUser/Header-Icon-User.png');
+    background-position: center;
+    background-size: cover;
     opacity: 0.89;
 }
 .logo:hover{

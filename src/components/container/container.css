@@ -1,28 +1,30 @@
 #container{
     margin-top: 40px;
-    width: inherit;
-    height: 900px;
+    width: 70%;
+    height: inherit;
     padding: 20px;
     padding-top: 100px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    background-size: cover;
+    /* position:sticky; */
 } 
 .gameContainer{
     /* margin-top: 500px; */
     border-radius: 40px;
     background-color:rgb(150, 176, 209) ;
     color:rgb(10, 158, 163);
-    width: 600px;
-    height: 370px;
+    width: 500px;
+    height: 300px;
     margin: 20px;
     border: 1px,rgb(36, 101, 187),solid;
     opacity: 0.9;
     box-shadow:0 0 30px rgb(3, 83, 63);    
 }
 .gameContainer:hover{
-    width: 670px;
-    height: 430px;
+    width: 570px;
+    height: 330px;
     box-shadow:0 0 90px rgb(28, 255, 149);
     opacity: 1;
     
@@ -34,8 +36,8 @@
     font-size: 40px;
     font-family: Bradley Hand, cursive;
     text-decoration: none;
-    width: 600px;
-    height: 370px;
+    width: 500px;
+    height: 300px;
     margin: 20px;
     border: 1px,rgb(36, 101, 187),solid;
     opacity: 0.9;
@@ -48,8 +50,8 @@
     
 }
 .gameSnake:hover{
-    width: 670px;
-    height: 430px;
+    width: 570px;
+    height: 330px;
     font-size: 45px;
     box-shadow:0 0 90px rgb(28, 255, 149);
     opacity: 1;

@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 const Container = () => {
 
     const onClickHandler = (e) => {
-        document.getElementById('container').style.display = 'none'
         document.querySelector('footer').style.display = 'none'
         document.querySelector('header').style.opacity = 0.5;              
         }
