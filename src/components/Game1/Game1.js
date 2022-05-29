@@ -1,19 +1,20 @@
 import './Game1.css'
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, memo } from 'react';
 import { useInterval } from "./useInterval.js";
-import {CANVAS_SIZE,SNAKE_START, APPLE_START, SCALE,SPEED, DIRECTIONS} from "./consts.js";
-import './mouse.png'
+import {CANVAS_SIZE,SNAKE_START, MOUSE_START, SCALE, DIRECTIONS} from "./consts.js";
+
 
 const Game1 = () => {
-    const img = './mouse.png'
+
     const canvasRef = useRef();
     const [snake, setSnake] = useState(SNAKE_START);
-    const [apple, setApple] = useState(APPLE_START);
+    const [mouse, setMouse] = useState(MOUSE_START);
     const [dir, setDir] = useState([0, -1]);
     const [speed, setSpeed] = useState(null);
     const [gameOver, setGameOver] = useState(false);
     const [score, setScore] = useState(0);
-  
+    const level = useRef()
+    const mouseImg = useRef()
     useInterval(() => gameLoop(), speed);
   
     const endGame = () => {
@@ -24,8 +25,8 @@ const Game1 = () => {
     const moveSnake = ({ keyCode }) =>
       keyCode >= 37 && keyCode <= 40 && setDir(DIRECTIONS[keyCode]);
   
-    const createApple = () =>
-      apple.map((a, i) => Math.floor(Math.random() * (CANVAS_SIZE[i] / SCALE)));
+    const createMouse = () =>
+      mouse.map((a, i) => Math.floor(Math.random() * (CANVAS_SIZE[i] / SCALE)));
   
     const checkCollision = (piece, snk = snake) => {
       if (
@@ -42,14 +43,14 @@ const Game1 = () => {
       return false;
     };
   
-    const checkAppleCollision = newSnake => {
-      if (newSnake[0][0] === apple[0] && newSnake[0][1] === apple[1]) {
-        let newApple = createApple();
-        while (checkCollision(newApple, newSnake)) {
-          newApple = createApple();
+    const checkMouseCollision = newSnake => {
+      if (newSnake[0][0] === mouse[0] && newSnake[0][1] === mouse[1]) {
+        let newMouse = createMouse();
+        while (checkCollision(newMouse, newSnake)) {
+          newMouse = createMouse();
         }
         setScore(score + 1);
-        setApple(newApple);
+        setMouse(newMouse);
         return true;
       }
       return false;
@@ -60,15 +61,15 @@ const Game1 = () => {
       const newSnakeHead = [snakeCopy[0][0] + dir[0], snakeCopy[0][1] + dir[1]];
       snakeCopy.unshift(newSnakeHead);
       if (checkCollision(newSnakeHead)) endGame();
-      if (!checkAppleCollision(snakeCopy)) snakeCopy.pop();
+      if (!checkMouseCollision(snakeCopy)) snakeCopy.pop();
       setSnake(snakeCopy);
     };
   
     const startGame = () => {
       setSnake(SNAKE_START);
-      setApple(APPLE_START);
+      setMouse(MOUSE_START);
       setDir([0, -1]);
-      setSpeed(SPEED);
+      setSpeed(level.current.value);
       setGameOver(false);
       setScore(0);
     };
@@ -78,14 +79,21 @@ const Game1 = () => {
       context.setTransform(SCALE, 0, 0, SCALE, 0, 0);
       context.clearRect(0, 0, window.innerWidth, window.innerHeight);
       context.fillStyle = "blueviolet";
-      snake.forEach(([x, y]) => context.fillRect(x, y, 1, 1));
-      context.fillStyle = "lightblue";
-      //context.drawImage(img, 0, 0)
-      context.fillRect(apple[0], apple[1], 1, 1);
-    }, [snake, apple, gameOver, score]);
+      snake.forEach(([x, y]) => {
+        context.fillRect(x, y, 1, 1)
+      });
+      // context.fillStyle = "lightblue";      
+      // context.fillRect(apple[0], apple[1], 1, 1)
+      context.drawImage(mouseImg.current, mouse[0], mouse[1], 1.1,1.1)
+      mouseImg.current.style.display = 'flax';;
+    }, [snake, mouse, gameOver, score]);
 
+
+    
     return (
+      
         <div role="button" tabIndex="0" onKeyDown={e => moveSnake(e)} id={'canvasSnake'}>
+        <img ref={mouseImg} id='mouse' src="https://cdn3.iconfinder.com/data/icons/animal-emoji/50/Mouse-128.png" />
         <div className='score'>Score: {score}</div>
       <canvas
         style={{ border: "5px solid rgb(195, 3, 233)" }}
@@ -96,12 +104,13 @@ const Game1 = () => {
       {gameOver && <div>GAME OVER!</div>}
       <div className='canvasBottom'>
         <button onClick={startGame} className='btn'>Start Game</button>
-        <select name='level' value={'level'}>
-          <option value="high">high</option>
-          <option value={'medium'}>medium</option>
-          <option value={'low'}>low</option>
-        </select>
-        
+        <p >
+          <select name='level' ref={level}>
+            <option value="70">high</option>
+            <option value='110' selected='selected'>medium</option>
+            <option value='160'>low</option>
+          </select>
+        </p>
       </div>
       
     </div>
@@ -109,4 +118,4 @@ const Game1 = () => {
       
 };
 
-export default Game1;
+export default (Game1);
