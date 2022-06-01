@@ -1,7 +1,71 @@
 import './Game2.css'
-const Game2 = () => {
-    return (
-    <canvas className='game2'></canvas>
-    );
+import {useState,useEffect} from 'react'
+import {nanoid} from "nanoid"
+import Confetti from "react-confetti"
+import Die from './Die'
+import Header from './Header'
+
+function Game2() {
+
+  const [dice, setDice] = useState(newDice())
+  const [tenzies, setTenzies] = useState(false)
+  const [btnCount, setBtnCount] = useState(0)
+
+  useEffect(()=>{
+    const allHeld = dice.every(die=>die.isHeld)
+    const firstValue = dice[0].value
+    const allSameValue = dice.every(die=>die.value === firstValue)
+    if(allHeld && allSameValue) { 
+      setTenzies(true) 
+    }
+  },[dice])
+  function newDieGenerator() {
+    return {
+        value:Math.ceil(Math.random() * 6),
+        isHeld:false,
+        id: nanoid()
+      }
+  }
+  function newDice() {
+    const newDiceArr = []
+    for (let i = 0; i < 10; i++) {
+        newDiceArr.push(newDieGenerator())
+    }
+    return newDiceArr
+  }
+  
+  function rollDice() {
+    if(!tenzies) {
+      setDice(oldDice => oldDice.map(die=>{
+        return die.isHeld ? die : newDieGenerator()
+      }))
+      setBtnCount(prevCount => prevCount + 1)
+    } else {
+      setTenzies(false)
+      setDice(newDice())
+      setBtnCount(0)
+    }
+  }
+
+  function holdDice(id) {
+    !tenzies && setDice(prevDice => prevDice.map(die=>{
+      return die.id === id ? {...die, isHeld: !die.isHeld} : die
+    }))
+  }
+  const diceElements = dice.map(die => <Die key={die.id} value={die.value} holdDice={()=>holdDice(die.id)} isHeld={die.isHeld}/>)
+  return (
+    <div className="app2">
+      <div className="container2">
+        {tenzies && <Confetti />}
+        <Header/>
+        <div className="dieBlock">
+          {diceElements}
+        </div>
+        {tenzies && <p className='btnClickCount'>You rolled {btnCount} times</p>}
+        <button onClick={rollDice} className='dieRollBtn'>{tenzies ? "New Game" : "Roll"}</button>
+      </div>
+    </div>
+  );
 }
+
 export default Game2;

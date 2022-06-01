@@ -1,5 +1,5 @@
 import './Game1.css'
-import React,{ useState, useRef, useEffect, memo } from 'react';
+import React,{ useState, useRef, useEffect} from 'react';
 import { useInterval } from "./useInterval.js";
 import {CANVAS_SIZE,SNAKE_START, MOUSE_START, SCALE, DIRECTIONS, FOOD} from "./consts.js";
 
@@ -12,14 +12,17 @@ const Game1 = () => {
     const [speed, setSpeed] = useState(null);
     const [gameOver, setGameOver] = useState(false);
     const [score, setScore] = useState(0);
+    const [record, setRecord] = useState(0);
     const [food, setFood] = useState(FOOD[0])
     const level = useRef()
     const mouseImg = useRef()
     const snakeImg = useRef()
 
     useInterval(() => gameLoop(), speed);
-  
+
+    const gameOverSound = new Audio('https://cdn.pixabay.com/download/audio/2021/08/04/audio_c6ccf3232f.mp3?filename=negative_beeps-6008.mp3')
     const endGame = () => {
+      gameOverSound.play()
       setSpeed(null);
       setGameOver(true);
     };
@@ -44,13 +47,15 @@ const Game1 = () => {
       }
       return false;
     };
-  
+    
+    const scoreSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-arcade-score-interface-217.mp3')
     const checkMouseCollision = newSnake => {
       if (newSnake[0][0] === mouse[0] && newSnake[0][1] === mouse[1]) {
+        scoreSound.play()
         let newMouse = createMouse();
         while (checkCollision(newMouse, newSnake)) {
           newMouse = createMouse();
-        }
+        }        
         setFood(mouseImg.current.src = FOOD[Math.floor(Math.random() * FOOD.length)])
         setScore(score + 1);
         setMouse(newMouse);
@@ -74,9 +79,10 @@ const Game1 = () => {
       setDir([0, -1]);
       setSpeed(level.current.value);
       setGameOver(false);
-      setScore(0);
-
-      
+      setScore(0);   
+      if(score > record){
+        setRecord(score)
+      }   
     };
   
     useEffect(() => {
@@ -98,9 +104,11 @@ const Game1 = () => {
     return (
       
         <div role="button" tabIndex="0" onKeyDown={e => moveSnake(e)} id={'canvasSnake'}>
-          <img ref={mouseImg} id='mouse' src={food} />
-            <img ref={snakeImg} id='mouse' src="https://art.pixilart.com/bf702463aa6296c.png" />
-        <div className='score'>Score: {score}</div>
+          <img ref={mouseImg} id='mouse' src={food} alt='/'/>
+            <img ref={snakeImg} id='mouse' src="https://art.pixilart.com/bf702463aa6296c.png" alt='/'/>
+            
+        <p className='scoresStr'><div className='score'>Score: {score}</div>
+        <div className='score'>Record: {record}</div></p>
       <canvas
         style={{ border: "5px solid rgb(195, 3, 233)" }}
         ref={canvasRef}

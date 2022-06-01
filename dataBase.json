@@ -4,32 +4,41 @@
             "id":"1",
             "name":"Artur",
             "password":"1111",
-            "history":{
-
+            "gameSnake":{
+                "history":{
+                    "scoreRecord":"1"
+                }
             }
+            
         },
         {
             "id":"2",
             "name":"Armen",
             "password":"2222",
-            "history":{
-
+            "gameSnake":{
+                "history":{
+                    "scoreRecord":"0"
+                }
             }
         },
         {
             "id":"3",
             "name":"Vardan",
             "password":"3333",
-            "history":{
-
+            "gameSnake":{
+                "history":{
+                    "scoreRecord":"60"
+                }
             }
         },
         {
             "id":"4",
             "name":"Mane",
             "password":"4444",
-            "history":{
-
+            "gameSnake":{
+                "history":{
+                    "scoreRecord":"8"
+                }
             }
         }
 

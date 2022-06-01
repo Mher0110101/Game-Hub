@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <header className="header">
             <Link to='/Home' className='gameHub' onClick={headerOnClick}>Game Hub</Link> 
-            <Link to='/Login' className='logo'></Link>
+            <Link to='/Login' className='logo' onClick={headerOnClick}></Link>
         </header>
     );           
 }

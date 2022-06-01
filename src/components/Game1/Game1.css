@@ -1,13 +1,13 @@
 #canvasSnake{
     margin-top: 60px;
     margin-bottom: 10px;
-    background-color:rgb(192, 245, 240);
+    background-color:rgb(255, 255, 255);
     /* background-image: url('ground.png'); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 700px;
-    height: 730px;
+    height: 750px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +19,7 @@
     width: 150px;
     height: 40px;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
     border-radius: 19.8px;
     background: rgb(195, 3, 233);
     color: #fff;
@@ -31,6 +31,11 @@
     color: rgb(83, 54, 102);
     font-size: 30px;
     font-family: Bradley Hand, cursive;
+    margin-right: 20px;
+}
+.scoresStr{
+    display: flex;
+    justify-content: space-around;
 }
 .canvasBottom{
     display: flex;
@@ -42,7 +47,7 @@ select{
     width: 90px;
     height: 30px;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
     border-radius: 6px;
     background: rgb(195, 3, 233);
     color: #fff;

@@ -10,8 +10,7 @@
     background-size: cover;
     /* position:sticky; */
 } 
-.gameContainer{
-    /* margin-top: 500px; */
+.gameContainer,.gameSnake,.Game2Container{
     border-radius: 40px;
     background-color:rgb(150, 176, 209) ;
     color:rgb(10, 158, 163);
@@ -22,38 +21,40 @@
     opacity: 0.9;
     box-shadow:0 0 30px rgb(3, 83, 63);    
 }
+.Game2Container{
+    background-image: url('https://cdn.shoplightspeed.com/shops/633820/files/24600950/image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-size: 650px 400px;
+}
 .gameContainer:hover{
-    width: 570px;
-    height: 330px;
-    box-shadow:0 0 90px rgb(28, 255, 149);
+    box-shadow: 0 0 90px rgb(28, 255, 149);
     opacity: 1;
+    background-size: 570px 370px;    
+    transition: tranform(120ms);
+    transform:   translateY(-20px);
+}
+.Game2Container:hover{
+    background-size: cover;
+    background-position: center;
+    background-size: 700px 400px;
     
+    transition: tranform(120ms);
+    transform:   translateY(-20px);
+    box-shadow: 0 0 90px rgb(28, 255, 149);
+    opacity: 1;
 }
 .gameSnake{
-    border-radius: 40px;
-    background-color:rgb(140, 163, 194) ;
-    color:rgb(6, 7, 56);
-    font-size: 40px;
-    font-family: Bradley Hand, cursive;
-    text-decoration: none;
-    width: 500px;
-    height: 300px;
-    margin: 20px;
-    border: 1px,rgb(36, 101, 187),solid;
-    opacity: 0.9;
-    box-shadow:0 0 70px rgb(76, 225, 245);
-    background-image: url('https://play-lh.googleusercontent.com/GEJ3GQeLv93D3yyRdPnFZ_ZuHc3Z7zVjM--S2Nl-_bC2tRGoIJAKQZcu8zvSxNx7fg=w1024-h500');
-    /* background-repeat: no-repeat; */
+    background-image: url('https://images-na.ssl-images-amazon.com/images/I/419KjOMey7L.png');
     background-size: cover;
     background-position: center;
     background-size: 500px 300px;
     
 }
 .gameSnake:hover{
-    width: 570px;
-    height: 330px;
-    font-size: 45px;
-    box-shadow:0 0 90px rgb(28, 255, 149);
+    box-shadow: 0 0 90px rgb(28, 255, 149);
     opacity: 1;
     background-size: 570px 370px;    
+    transition: tranform(120ms);
+    transform:   translateY(-20px);
 }
