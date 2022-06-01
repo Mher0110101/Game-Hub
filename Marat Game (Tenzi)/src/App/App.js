@@ -9,7 +9,8 @@ function App() {
 
   const [dice, setDice] = useState(newDice())
   const [tenzies, setTenzies] = useState(false)
-    
+  const [btnCount, setBtnCount] = useState(0)
+
   useEffect(()=>{
     const allHeld = dice.every(die=>die.isHeld)
     const firstValue = dice[0].value
@@ -40,14 +41,16 @@ function App() {
       setDice(oldDice => oldDice.map(die=>{
         return die.isHeld ? die : newDieGenerator()
       }))
+      setBtnCount(prevCount => prevCount + 1)
     } else {
       setTenzies(false)
       setDice(newDice())
+      setBtnCount(0)
     }
   }
 
   function holdDice(id) {
-    setDice(prevDice => prevDice.map(die=>{
+    !tenzies && setDice(prevDice => prevDice.map(die=>{
       return die.id === id ? {...die, isHeld: !die.isHeld} : die
     }))
   }
@@ -62,6 +65,7 @@ function App() {
         <div className="dieBlock">
           {diceElements}
         </div>
+        {tenzies && <p className='btnClickCount'>You rolled {btnCount} times</p>}
         <button onClick={rollDice} className='dieRollBtn'>{tenzies ? "New Game" : "Roll"}</button>
       </div>
     </div>
