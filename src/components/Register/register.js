@@ -5,6 +5,8 @@ import { dbUrl } from "../Login/dbUrl"
 import '../Login/login.css'
 import { ACTIVE_ROUTES, useRegisterRoute } from "../RouteProvider"
 
+const [LOGIN] = ACTIVE_ROUTES
+
 const Register = () => {
     const [isRegisterFailed, setIsRegisterFailed] = useState(true)
     const {setActiveRoute} = useRegisterRoute()
@@ -18,7 +20,7 @@ const Register = () => {
 
         setIsRegisterFailed(false)
         setTimeout(() => {
-            setActiveRoute(ACTIVE_ROUTES[0])
+            setActiveRoute(LOGIN)
         }, 1000)
     }
 
@@ -33,7 +35,7 @@ const Register = () => {
                     PASSWORD
                     <input {...register('password', {required: true, minLength: 4})} type="password"/>
                 </label>
-                <label className={classes.label}>
+                <label className='label'>
                     REPEAT PASSWORD
                     <input {...register('rePassword', {required: true})} type="password"/>
                 </label>

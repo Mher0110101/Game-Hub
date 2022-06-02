@@ -3,10 +3,12 @@ import Login from "../Login/login"
 import Register from "../Register/register"
 import { ACTIVE_ROUTES, useRegisterRoute } from "../RouteProvider"
 
+const [LOGIN, REGISTRATION] = ACTIVE_ROUTES
+
 
 const component = {
-    [ACTIVE_ROUTES[0]]: <Login />,
-    [ACTIVE_ROUTES[1]]: <Register />
+    [LOGIN]: <Login />,
+    [REGISTRATION]: <Register />
 }
 
 const RegisterComponent = () => {

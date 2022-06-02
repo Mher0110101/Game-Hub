@@ -13,6 +13,7 @@ const userSlice = createSlice({
         }
     }
 })
+export const userSelector = state => state.userReducer?.user
 
 export const {setUser,removeUser} = userSlice.actions
 

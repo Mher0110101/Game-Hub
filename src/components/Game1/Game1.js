@@ -3,7 +3,9 @@ import React,{ useState, useRef, useEffect} from 'react';
 import { useInterval } from "./useInterval.js";
 import {CANVAS_SIZE,SNAKE_START, MOUSE_START, SCALE, DIRECTIONS, FOOD} from "./consts.js";
 
- 
+const gameOverSound = new Audio('https://cdn.pixabay.com/download/audio/2021/08/04/audio_c6ccf3232f.mp3?filename=negative_beeps-6008.mp3')
+const scoreSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-arcade-score-interface-217.mp3')
+
 const Game1 = () => {
     const canvasRef = useRef();
     const [snake, setSnake] = useState(SNAKE_START);
@@ -20,7 +22,7 @@ const Game1 = () => {
 
     useInterval(() => gameLoop(), speed);
 
-    const gameOverSound = new Audio('https://cdn.pixabay.com/download/audio/2021/08/04/audio_c6ccf3232f.mp3?filename=negative_beeps-6008.mp3')
+    
     const endGame = () => {
       gameOverSound.play()
       setSpeed(null);
@@ -48,7 +50,7 @@ const Game1 = () => {
       return false;
     };
     
-    const scoreSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-arcade-score-interface-217.mp3')
+    
     const checkMouseCollision = newSnake => {
       if (newSnake[0][0] === mouse[0] && newSnake[0][1] === mouse[1]) {
         scoreSound.play()
@@ -107,10 +109,10 @@ const Game1 = () => {
           <img ref={mouseImg} id='mouse' src={food} alt='/'/>
             <img ref={snakeImg} id='mouse' src="https://art.pixilart.com/bf702463aa6296c.png" alt='/'/>
             
-        <p className='scoresStr'><div className='score'>Score: {score}</div>
-        <div className='score'>Record: {record}</div></p>
+        <div className='scoresStr'><div className='score'>Score: {score}</div>
+        <div className='score'>Record: {record}</div></div>
       <canvas
-        style={{ border: "5px solid rgb(195, 3, 233)" }}
+        style={{ border: "3px solid rgb(195, 3, 233)" }}
         ref={canvasRef}
         width={`${CANVAS_SIZE[0]}px`}
         height={`${CANVAS_SIZE[1]}px`}
@@ -120,8 +122,8 @@ const Game1 = () => {
         <button onClick={startGame} className='btn'>Start Game</button>
         <p >
           <select name='level' ref={level}>
+            <option value='110' >medium</option>
             <option value="70">high</option>
-            <option value='110' selected='selected'>medium</option>
             <option value='160'>low</option>
           </select>
         </p>

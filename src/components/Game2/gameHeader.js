@@ -1,6 +1,6 @@
-import './Header.css'
+import './gameHeader.css'
 
-function Header() {
+function gameHeader() {
     return (
       <header className="headerGame2">
         <h1 className='headerTitle'>Tenzies</h1>
@@ -9,4 +9,4 @@ function Header() {
     )
 }
 
-export default Header
+export default gameHeader

@@ -33,8 +33,7 @@ axios.get(`${dbUrl}/users`)
 .catch(err => alert(err.message))
 }
     return(
-        <div id='login'>
-            
+        <div id='login'>            
             <form className='form' onSubmit={handleSubmit(onSubmit)}>
                 <label className='label'>LOGIN<br/>
                     <input {...register('login',{minLength: 3})} type='text' placeholder='userName or login'/>
@@ -53,9 +52,8 @@ axios.get(`${dbUrl}/users`)
                 <button type='submit' className='registerbtn'>LOG IN</button>
             </form>
             {
-                isRegisterFailed && <button className='registerbtn' onClick={() => /*setActiveRoute(ACTIVE_ROUTES[1])*/{}}>GO TO REGISTRATION</button>
-            }
-            
+                isRegisterFailed && <button className='registerbtn' onClick={() => setActiveRoute(ACTIVE_ROUTES[1])}>GO TO REGISTRATION</button>
+            }            
         </div>
     );
 }
