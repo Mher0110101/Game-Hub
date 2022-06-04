@@ -105,7 +105,7 @@ const Game1 = () => {
     
     return (
       
-        <div /*role="button"*/ /*tabIndex="0"*/ onKeyDown={e => moveSnake(e)} id={'canvasSnake'}>
+        <div onKeyDown={e => moveSnake(e)} id={'canvasSnake'}>
           <img ref={mouseImg} id='mouse' src={food} alt='/'/>
             <img ref={snakeImg} id='mouse' src="https://art.pixilart.com/bf702463aa6296c.png" alt='/'/>
             
