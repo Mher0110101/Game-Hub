@@ -13,7 +13,7 @@ const Container = () => {
             <div id='container'>
                 <Link to={'/game1'} className={'gameSnake'} onClick={onClickHandler}></Link>
                 <Link to={'/game2'} className={'Game2Container'} onClick={onClickHandler}>Game2</Link>
-                <Link to={'/game2'} className={'gameContainer'} onClick={onClickHandler}>Game3</Link>
+                <Link to={'/game3'} className={'game3Memory'} onClick={onClickHandler}></Link>
                 <Link to={'/game2'} className={'gameContainer'} onClick={onClickHandler}>Game4</Link>
             </div>                
         );            
