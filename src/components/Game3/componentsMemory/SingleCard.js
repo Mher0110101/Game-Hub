@@ -4,8 +4,7 @@ function SingleCard({card, handleChoose, flipped, disabled}) {
     const handleClick = () => {
         if(!disabled) {
             handleChoose(card)
-        }
-        
+        }      
     }
     return (
      
@@ -13,7 +12,6 @@ function SingleCard({card, handleChoose, flipped, disabled}) {
           <div className= {flipped ? 'flipped' : ""}>
             <img 
                 className='front' 
-                // onClick={} 
                 src = {card.src} 
                 alt="card front"/>
             <img 
@@ -23,7 +21,6 @@ function SingleCard({card, handleChoose, flipped, disabled}) {
                 alt='card back'/>
           </div>
         </div>
-       
     )
 }
 export default SingleCard;
