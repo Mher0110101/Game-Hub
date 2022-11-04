@@ -1,3 +1,8 @@
+About app
+
+this is a mini project, 2 games are presented here so far
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
