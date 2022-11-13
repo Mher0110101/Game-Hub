@@ -1,4 +1,4 @@
-import './Game1.css'
+import './Game1.scss'
 import React,{ useState, useRef, useEffect} from 'react';
 import { useInterval } from "./useInterval.js";
 import {CANVAS_SIZE,SNAKE_START, MOUSE_START, SCALE, DIRECTIONS, FOOD} from "./consts.js";
@@ -101,25 +101,30 @@ const Game1 = () => {
       context.drawImage(mouseImg.current, mouse[0], mouse[1], 1.1,1.1)
     }, [snake, mouse, gameOver, score]);
 
-
+    const enterPress= ({keyCode})=>{
+      if(keyCode === 125 && gameOver === 'true'){
+        startGame()
+      }
+    }
     
     return (
       
-        <div onKeyDown={e => moveSnake(e)} id={'canvasSnake'}>
-          <img ref={mouseImg} id='mouse' src={food} alt='/'/>
-            <img ref={snakeImg} id='mouse' src="https://art.pixilart.com/bf702463aa6296c.png" alt='/'/>
+    <div onKeyDown={e => moveSnake(e)} id={'canvasSnake'}>
+        <img ref={mouseImg} id='mouse' src={food} alt='/'/>
+          <img ref={snakeImg} id='mouse' src="https://art.pixilart.com/bf702463aa6296c.png" alt='/'/>
             
         <div className='scoresStr'><div className='score'>Score: {score}</div>
         <div className='score'>Record: {record}</div></div>
-      <canvas
+      <canvas 
+        onKeyDown={e => enterPress(e)}
         style={{ border: "3px solid rgb(195, 3, 233)" }}
         ref={canvasRef}
         width={`${CANVAS_SIZE[0]}px`}
         height={`${CANVAS_SIZE[1]}px`}
       />
-      {gameOver && <div>GAME OVER!</div>}
+      {gameOver && <div style={{color:"red",fontSize:"15px"}}>GAME OVER!</div>}
       <div className='canvasBottom'>
-        <button onClick={startGame} className='btn'>Start Game</button>
+        <button onClick={startGame}  className='btn'>Start Game</button>
         <p >
           <select name='level' ref={level}>
             <option value='110' >medium</option>
@@ -129,8 +134,7 @@ const Game1 = () => {
         </p>
       </div>      
     </div>
-    );
-      
+    );      
 };
 
 export default (Game1);

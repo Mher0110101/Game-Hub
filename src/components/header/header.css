@@ -1,14 +1,14 @@
 .header{
     background-color: #1B8C7F;
     width: 95%;
-    height: 60px;
+    height: 45px;
     box-shadow: 0 0 10px rgb(25 197 176 / 80%), inset 0 0 4px rgb(28 197 166 / 50%);
     text-transform: uppercase;
     position: fixed;
     z-index: 1;
     font-size: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
@@ -17,7 +17,7 @@
     opacity: 1; /* for testing*/
 }
 .gameHub{
-    margin-left: 46%;
+    /* margin-left: 46%; */
     color:aqua;
     text-decoration: none;
     align-items: center;
@@ -33,14 +33,16 @@
     opacity: 1;
 }
 .logo{
-    width: 45px; 
-    height: 45px;    
+    width: 40px; 
+    height: 40px;    
     background-image: url('https://archive.org/download/HeaderIconUser/Header-Icon-User.png');
     background-color: #54b3d6;
-    background-position: center;
+    background-position:center;
     background-size: cover;
     opacity: 0.89;
     border-radius: 50%;
+    position: absolute;
+    right: 5px;
 }
 .logo:hover{
     width: 47px;

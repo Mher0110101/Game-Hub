@@ -1,7 +1,7 @@
-const CANVAS_SIZE = [600, 600];
+const CANVAS_SIZE = [500, 500];
 const SNAKE_START = [[8,17],[8,18]];
 const MOUSE_START = [8,3]
-const SCALE = 30;
+const SCALE = 20;
 
 const DIRECTIONS = {
     38:[0,-1],
