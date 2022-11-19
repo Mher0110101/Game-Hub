@@ -16,7 +16,7 @@ const Header = () => {
     }
     return (
         <header className="header">
-            <Link to='/Home' className='gameHub' onClick={gameHubOnClick}>Game Hub</Link>            
+            <Link to='/Home' className='gameHub' onClick={gameHubOnClick}>Game Hub ©</Link>
             {user && <button className='btn' onClick={logOut}/>}
             {user && <div className='userName'>{user}</div>}
             <Link to='/Login' className='logo' onClick={gameHubOnClick}></Link>
