@@ -76,15 +76,15 @@ const Game1 = () => {
     };
   
     const startGame = () => {
-      setSnake(SNAKE_START);
-      setMouse(MOUSE_START);
-      setDir([0, -1]);
-      setSpeed(level.current.value);
-      setGameOver(false);
-      setScore(0);   
-      if(score > record){
-        setRecord(score)
-      }   
+        setSnake(SNAKE_START);
+        setMouse(MOUSE_START);
+        setDir([0, -1]);
+        setSpeed(level.current.value);
+        setGameOver(false);
+        setScore(0);
+        if(score > record){
+            setRecord(score)
+        }
     };
   
     useEffect(() => {
@@ -106,18 +106,62 @@ const Game1 = () => {
         startGame()
       }
     }
+    let x1 = null
+    let y1 = null
+    const handleTouchStart = (ev)=>{
+        x1 = ev.touches[0].clientX;
+        y1 = ev.touches[0].clientY;
+    }
+    const handleTouchMove = (ev)=>{
+        if(!x1 || !y1)
+            return false
+        let x2 = ev.touches[0].clientX;
+        let y2 = ev.touches[0].clientY;
+        // console.log(x1,y1)
+        let xDelta = x2 - x1;
+        let yDelta = y2 - y1;
+        if(Math.abs(xDelta) > Math.abs(yDelta)){
+            if(xDelta > 0){
+                //rigth
+                console.log('rigth')
+                setDir(DIRECTIONS[39])
+                // moveSnake(39)
+            }else{
+                //left
+                console.log('left')
+                setDir(DIRECTIONS[37])
+                // moveSnake(37)
+            }
+        }
+        else{
+            if(yDelta > 0){
+                //down
+                console.log('down')
+                setDir(DIRECTIONS[40])
+                // moveSnake(40)
+            }else{
+                //top
+                console.log('up')
+                setDir(DIRECTIONS[38])
+                // moveSnake(38)
+            }
+        }
+        x1 = null;
+        y1 = null;
+    }
     
     return (
-      
     <div onKeyDown={e => moveSnake(e)} id={'canvasSnake'}>
         <img ref={mouseImg} id='mouse' src={food} alt='/'/>
           <img ref={snakeImg} id='mouse' src="https://art.pixilart.com/bf702463aa6296c.png" alt='/'/>
-            
+
         <div className='scoresStr'><div className='score'>Score: {score}</div>
         <div className='score'>Record: {record}</div></div>
       <canvas 
         onKeyDown={e => enterPress(e)}
         style={{ border: "3px solid rgb(195, 3, 233)" }}
+        onTouchMove={handleTouchMove}
+        onTouchStart={handleTouchStart}
         ref={canvasRef}
         width={`${CANVAS_SIZE[0]}px`}
         height={`${CANVAS_SIZE[1]}px`}

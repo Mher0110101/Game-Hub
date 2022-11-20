@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c21f5e7f-531d-475e-b9bf-b7b08ed9f4e3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/container/container.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/container/container.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Game1/Game1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Game1/Game1.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,6 +12,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -44,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668862874410</updated>
-      <workItem from="1668862882147" duration="12948000" />
+      <workItem from="1668862882147" duration="15913000" />
     </task>
     <servers />
   </component>
