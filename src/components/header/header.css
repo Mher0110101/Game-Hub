@@ -1,7 +1,7 @@
 .header{
     background-color: #1B8C7F;
     width: 95%;
-    height: 45px;
+    min-height: 45px;
     box-shadow: 0 0 10px rgb(25 197 176 / 80%), inset 0 0 4px rgb(28 197 166 / 50%);
     text-transform: uppercase;
     position: fixed;
@@ -27,7 +27,7 @@
     border-radius: 7px;
 }
 .gameHub:hover{
-    box-shadow: inset 200px 0 0 0 aqua;
+    box-shadow: inset 220px 0 0 0 aqua;
     border-radius: 10px;
     color: #1B8C7F;
     opacity: 1;

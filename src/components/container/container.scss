@@ -1,0 +1,148 @@
+/* $nativeColor: #fff; */
+$scolor: rgb(50, 24, 93);
+
+#container{
+    margin-top: 40px;
+    width: inherit;
+    height: inherit;
+    padding: 20px;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-size: cover;
+    /* position:sticky; */
+} 
+.gameContainer,.gameSnake,.Game2Container{
+    border-radius: 40px;
+    background-color:rgb(150, 176, 209) ;
+    color:rgb(10, 158, 163);
+    width: 500px;
+    min-height: 300px;
+    margin: 20px;
+    border: 1px rgb(36, 101, 187) solid;
+    opacity: 0.9;
+    box-shadow:0 0 30px rgb(3, 83, 63);
+}
+.Game2Container{
+    background-image: url('https://cdn.shoplightspeed.com/shops/633820/files/24600950/image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-size: 650px 400px;
+}
+.gameContainer:hover{
+    box-shadow: 0 0 90px rgb(28, 255, 149);
+    opacity: 1;
+    background-size: 570px 370px;    
+    transition: tranform 0.5s;
+    transform:   translateY(-20px);
+}
+.Game2Container:hover{
+    background-size: cover;
+    background-position: center;
+    background-size: 700px 400px;
+    transition: tranform 0.5s;
+    transform:   translateY(-20px);
+    box-shadow: 0 0 90px rgb(28, 255, 149);
+    opacity: 1;
+}
+.gameSnake{
+    background-image: url('https://images-na.ssl-images-amazon.com/images/I/419KjOMey7L.png');
+    background-size: cover;
+    background-position: center;
+    background-size: 500px 300px;
+    
+}
+.gameSnake:hover{
+    box-shadow: 0 0 90px rgb(28, 255, 149);
+    opacity: 1;
+    /*background-size: 570px 370px;*/
+    transition:  transform 0.5s;
+    transform:   translateY(-20px);
+}
+@media screen and (max-width:600px)  {
+    .gameContainer,.gameSnake,.Game2Container{
+        border-radius: 40px;
+        background-color:rgb(150, 176, 209) ;
+        color:rgb(10, 158, 163);
+        width: 300px;
+        min-height: 150px;
+        margin: 20px;
+        border: 1px rgb(36, 101, 187) solid;
+        opacity: 0.9;
+        box-shadow:0 0 30px rgb(3, 83, 63);
+        border-radius: 19px;
+    }
+    header{
+        width: 95%;
+    }
+    .app{
+        width: 100%;
+        min-height: 900px;
+    }
+    canvas{
+        width: 95%;
+        //height: inherit;
+    }
+    #canvasSnake{
+        margin-top: 60px;
+        margin-bottom: 10px;
+        background-color:rgb(255, 255, 255);
+        /* background-image: url('ground.png'); */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 95%;
+        //min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:center;
+        color: $scolor;
+        font-size: 16px;
+    }
+    .btn{
+        width: 120px;
+        height: 30px;
+    // text-align: center;
+        margin-top: 5px;
+        border-radius: 19.8px;
+        background: rgb(195, 3, 233);
+        color: #fff;
+        font-size: 14px;
+        font-family: Bradley Hand, cursive;
+        margin-right: 20px;
+        margin-bottom: 3px;
+    }
+    .score{
+        color: rgb(83, 54, 102);
+        font-size: 25px;
+        font-family: Bradley Hand, cursive;
+        margin-right: 20px;
+    }
+    .scoresStr{
+        display: flex;
+        justify-content: space-between;
+    }
+    .canvasBottom{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+    select{
+        width: 70px;
+        height: 20px;
+        text-align: center;
+        /* margin-top: 5px; */
+        border-radius: 6px;
+        background: rgb(195, 3, 233);
+        color: #fff;
+        font-size: 14px;
+        font-family: Bradley Hand, cursive;
+        border: #fff;
+
+    }
+}
+
+

@@ -1,4 +1,4 @@
-import './container.css'
+import './container.scss'
 import {Link} from 'react-router-dom'
 
 const Container = () => {

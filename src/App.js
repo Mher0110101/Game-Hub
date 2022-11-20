@@ -16,6 +16,7 @@ function App() {
     <div className="App">
     <Header />
       <Routes>
+        <Route path='/Game-Hub'element={<Container />}/>
         <Route path='/Home' element={<Container id={'container'}/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='Register' element={<RegisterComponent/>}/>
