@@ -78,7 +78,7 @@ $scolor: rgb(50, 24, 93);
     }
     .app{
         width: 100%;
-        min-height: 900px;
+        min-height: 300px;
     }
     canvas{
         width: 95%;
@@ -87,7 +87,7 @@ $scolor: rgb(50, 24, 93);
     #canvasSnake{
         margin-top: 60px;
         margin-bottom: 10px;
-        background-color:rgb(255, 255, 255);
+        background-color: rgb(118, 229, 216);
         /* background-image: url('ground.png'); */
         background-repeat: no-repeat;
         background-size: cover;
